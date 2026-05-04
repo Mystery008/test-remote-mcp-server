@@ -128,8 +128,9 @@ def categories():
 
 # Start the server
 if __name__ == "__main__":
-    mcp.run(transport="http", host="0.0.0.0", port=8000)
-    # mcp.run()
-else:
-    # Claude Desktop
-     mcp.run()
+    import sys
+
+    if "--remote" in sys.argv:
+        mcp.run(transport="http", host="0.0.0.0", port=8000)
+    else:
+        mcp.run()
